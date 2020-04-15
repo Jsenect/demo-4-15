@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- classPathEntry:数据库的 JDBC驱动的jar 包地址 -->
+    <!--    <classPathEntry
+                location="E:\Mybatis_generator_sql_connection\mysql-connector-java-5.1.32.jar"/>-->
+
+    <classPathEntry location="E:\postgersql_connection\postgresql-42.2.5.jre6.jar" />
+    <context id="caigouTables" targetRuntime="MyBatis3">
+
+        <!-- 配置生成pojo的序列化的插件，mybatis支持很多插件，这些插件都在 org.mybatis.generator.plugins包下  -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+
+        <!--  <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                          connectionURL="jdbc:mysql://127.0.0.1:3306/库名" userId="root"
+                          password="root">
+          </jdbcConnection>-->
+
+
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://192.168.139.201:5432/rvf_data_platform"
+                        userId="postgres"
+                        password="gxrd2019">
+            <!--        <jdbcConnection driverClass="org.postgresql.Driver"-->
+            <!--                        connectionURL="jdbc:postgresql://localhost:5432/rvf_data_platform"-->
+            <!--                        userId="postgres"-->
+            <!--                        password="postgres">-->
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- targetProject:生成 POJO 类的位置 -->
+        <javaModelGenerator targetPackage="com.gx.rvf.mgr.web.system.domain.entity" targetProject="src/main/java">
+            <!-- enableSubPackages:是否让schema 作为包的后缀 -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <!-- 生成 XML文件 -->
+        <sqlMapGenerator targetPackage="com.gx.rvf.mgr.web.system.domain.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <!--生成接口-->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.gx.rvf.mgr.web.system.domain.mapper" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <!-- 指定数据库表 -->
+        <table tableName="sys_user" domainObjectName="User" mapperName="UserMapper"
+        />
+    <!--    <table tableName="config_strategy" domainObjectName="ConfigStrategy" mapperName="ConfigStrategyMapper"
+        />
+        <table tableName="config_template" domainObjectName="ConfigTemplate" mapperName="ConfigTemplateMapper"
+        />
+        <table tableName="device_config" domainObjectName="DeviceConfig" mapperName="DeviceConfigMapper"
+        />
+        <table tableName="device" domainObjectName="Device" mapperName="DeviceMapper"
+        />
+        <table tableName="template_config" domainObjectName="TemplateConfig" mapperName="TemplateConfigMapper"
+        />
+
+-->
+
+
+
+
+        <!--   <table tableName="co_export_product" domainObjectName="ExportProduct" mapperName="ExportProductDao"
+                  enableCountByExample="false" enableDeleteByExample="false"
+                  enableSelectByExample="false" enableUpdateByExample="false"/>
+
+
+           <table tableName="co_ext_eproduct" domainObjectName="ExtEproduct" mapperName="ExtEproductDao"
+                  enableCountByExample="false" enableDeleteByExample="false"
+                  enableSelectByExample="false" enableUpdateByExample="false"/>
+
+           <table tableName="co_factory" domainObjectName="Factory" mapperName="FactoryDao"
+                  enableCountByExample="false" enableDeleteByExample="false"
+                  enableSelectByExample="false" enableUpdateByExample="false"/>-->
+
+
+    </context>
+</generatorConfiguration>
