@@ -4,10 +4,9 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!-- classPathEntry:数据库的 JDBC驱动的jar 包地址 -->
-    <!--    <classPathEntry
-                location="E:\Mybatis_generator_sql_connection\mysql-connector-java-5.1.32.jar"/>-->
+<!--        <classPathEntry location="E:\jdbc_connection\mysql-connector-java-5.1.49.jar"/>-->
 
-    <classPathEntry location="E:\postgersql_connection\postgresql-42.2.5.jre6.jar" />
+    <classPathEntry location="E:\jdbc_connection\postgresql-42.2.12.jre7.jar" />
     <context id="caigouTables" targetRuntime="MyBatis3">
 
         <!-- 配置生成pojo的序列化的插件，mybatis支持很多插件，这些插件都在 org.mybatis.generator.plugins包下  -->
@@ -19,21 +18,23 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 
-        <!--  <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                          connectionURL="jdbc:mysql://127.0.0.1:3306/库名" userId="root"
+<!--      <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                          connectionURL="jdbc:mysql://127.0.0.1:3306/sys_demo"
+                          userId="root"
                           password="root">
           </jdbcConnection>-->
 
-
         <jdbcConnection driverClass="org.postgresql.Driver"
-                        connectionURL="jdbc:postgresql://192.168.139.201:5432/rvf_data_platform"
+                        connectionURL="jdbc:postgresql://192.168.137.110:5432/sys_demo"
                         userId="postgres"
-                        password="gxrd2019">
-            <!--        <jdbcConnection driverClass="org.postgresql.Driver"-->
-            <!--                        connectionURL="jdbc:postgresql://localhost:5432/rvf_data_platform"-->
-            <!--                        userId="postgres"-->
-            <!--                        password="postgres">-->
+                        password="postgres">
         </jdbcConnection>
+
+        <!--<jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://localhost:5432/rvf_data_platform"
+                        userId="postgres"
+                        password="postgres">
+        </jdbcConnection>-->
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>

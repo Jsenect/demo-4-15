@@ -32,6 +32,8 @@ public class User implements Serializable {
 
     private Integer deleted;
 
+    private Integer type;
+
     private static final long serialVersionUID = 1L;
 
     public String getId() {
@@ -144,5 +146,13 @@ public class User implements Serializable {
 
     public void setDeleted(Integer deleted) {
         this.deleted = deleted;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
